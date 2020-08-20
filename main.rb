@@ -1,3 +1,7 @@
+require './write_review.rb'
+require './display_review.rb'
+
+
 LINE = "_____________________"
 class BookReview
   WRITE_REVIEW = 0
@@ -5,42 +9,7 @@ class BookReview
   END_PROGRAM = 2
 end
 
-def write_review(posts)
-  post = {}
-  puts "本のタイトルを入力してください"
-  post[:title] = gets.chomp
 
-  puts "本の評価（１〜５）を入力してください"
-  post[:point] = gets.chomp.to_i
-
-  if post[:point] < 1 || post[:point] > 5
-    puts "評価は１〜５で入力してください"
-    return
-  end
-
-  puts "本の感想を一言入力してください"
-  post[:review] = gets.chomp
-
-  posts << post
-end
-
-def display_review(posts)
-  index = 0
-  posts.each do |post|
-    puts "[#{index}] #{post[:title]}"
-    index += 1
-  end
-
-  puts "見たいレビューの番号を入力してください"
-  input  = gets.chomp.to_i
-  item = posts[input]
-
-  puts LINE
-  puts "タイトル： #{item[:title]}"
-  puts "評価： #{item[:point]}"
-  puts "感想： #{item[:review]}"
-  puts LINE
-end
 
 posts = []
 
