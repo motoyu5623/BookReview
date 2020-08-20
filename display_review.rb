@@ -7,7 +7,12 @@ def display_review(posts)
 
   puts "見たいレビューの番号を入力してください"
   input  = gets.chomp.to_i
-  item = posts[input]
+  if input < index
+    item = posts[input]
+  else
+    puts "正しいレビュー番号を入力してください"
+    return
+  end
 
   puts LINE
   puts "タイトル： #{item[:title]}"
